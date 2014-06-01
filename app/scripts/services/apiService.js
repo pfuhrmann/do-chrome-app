@@ -7,35 +7,28 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
     // Setup API credentials
     api.baseURL = 'https://api.digitalocean.com/v1';
 
-    // Test authorization details and load
+    // Test authorization details and load droplets
     api.testAndLoad = function(clientID, apiKey, callback) {
         // Mapping API credentials
         this.clientID = clientID;
         this.key = apiKey;
 
-        // Call
-        $http({method: 'GET', url: buildURL('/droplets')}).
-        success(function(data) {
-            // Store droplets
-            $storage.store({'droplets': data.droplets});
-            callback(true);
-        }).
-        error(function() {
-            // Deleting API credentials (wrong)
-            this.clientID = '';
-            this.key = '';
-            callback(false);
+        // Fetch droplets
+        api.fetchDroplets(function(droplets) {
+            if (droplets) {
+                callback(true);
+            } else {
+                callback(false);
+            }
         });
     };
 
     // Load droplets data
     api.fetchDroplets = function(callback) {
         // Call
-        console.log('fetching droplets');
-        console.log(this.baseURL+'//?client_id='+this.clientID+'&api_key='+this.key);
-        $http({method: 'GET', url: buildURL('/droplets')}).
+        $http({method: 'GET', url: buildURL('droplets')}).
         success(function(data) {
-            // Store droplets
+            // Store droplets locally
             $storage.store({'droplets': data.droplets});
             callback(data.droplets);
         }).
@@ -46,15 +39,21 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
 
     // Load droplets data
     api.loadCredentials = function(callback) {
-        console.log('locading credentials');
         $storage.load(['clientId', 'apiKey'], function(data) {
-            var authorized = (data.clientId && data.apiKey) ? true : false;
-            if (authorized) {
+            // First check if have API data
+            var apiData = (data.clientId && data.apiKey) ? true : false;
+            if (apiData) {
                 api.clientID = data.clientId;
                 api.key = data.apiKey;
+
+                // Also testing actual connection
+                api.testAndLoad(api.clientID , api.key, function(authorized) {
+                    callback(authorized);
+                });
+            } else {
+                // Not authorized
+                callback(false);
             }
-            console.log('credentials loaded');
-            callback(authorized);
         });
     };
 

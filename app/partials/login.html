@@ -8,6 +8,11 @@
     <label for="apiKey">API Key</label>
     <input type="password" class="form-control" ng-model="apiKey" id="apiKey" placeholder="Enter API Key">
   </div>
-  <button type="submit" class="btn btn-default">Save</button> {{ message }}
+  <button type="submit" class="btn btn-default">Save</button> 
+  <span ng-switch on="authorizationStatus" style="padding-left:10px;">
+    <span ng-switch-when="loading">Please wait...</span>
+    <span ng-switch-when="true" style="color:green;">{{ message }}</span>
+    <span ng-switch-when="false"  style="color:red;">{{ message }}</span>
+  </span>
 </form>
 </p>

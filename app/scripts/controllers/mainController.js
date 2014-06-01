@@ -2,8 +2,8 @@
 /*global DOControllers:false */
 
 DOControllers.controller('mainController', ['$scope', '$rootScope', 'apiService', 'storageService', function($scope, $rootScope, $api, $storage) {
-    function fetchDroplets() {
-        if (!$rootScope.droplets) {
+    function fetchDroplets(forced) {
+        if (!$rootScope.droplets || forced) {
             // Loading droplets
             $api.fetchDroplets(function(droplets) {
                 if (droplets) {
@@ -18,5 +18,4 @@ DOControllers.controller('mainController', ['$scope', '$rootScope', 'apiService'
         fetchDroplets();
     });
 
-    
 }]);
