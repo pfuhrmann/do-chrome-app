@@ -1,0 +1,18 @@
+<p style="padding-top:40px;">
+<table ng-if="droplets" class="table table-striped">
+  <thead>
+    <tr>
+      <td>Name</td>
+      <td>IP</td>
+      <td>Status</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="droplet in droplets">
+      <td>{{ droplet.name }}</td>
+      <td>{{ droplet.ip_address }}</td>
+      <td>{{ droplet.status }}</td>
+    </tr>
+  </tbody>
+</table>
+</p>

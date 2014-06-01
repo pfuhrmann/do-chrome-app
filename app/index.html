@@ -1,0 +1,47 @@
+<!doctype html>
+<html ng-app="doChromeManager" ng-controller="appController" ng-csp>
+    <head>
+        <meta charset="utf-8">
+        <title>DigitalOcean Manager</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- bower:css -->
+        <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+        <!-- endbower -->
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <h1>DigitalOcean Manager</h1>
+
+        <a href="#main">Manage Droplets</a> | <a href="#login">Config</a>
+
+        <div ng-switch on="authorizationStatus" style="float:right">
+           <p ng-switch-when="loading">Loading...</p>
+           <p ng-switch-when="true" style="color:green;">Authorized</p>
+           <p ng-switch-when="false"  style="color:red;">Not authorized</p>
+        </div>
+
+        <div ng-view></div>
+
+        <!-- bower:js -->
+        <script src="lib/jquery/dist/jquery.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="lib/angular-route/angular-route.js"></script>
+        <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+        <!-- endbower -->
+
+        <!-- build:js scripts/index.js -->
+        <script src="scripts/index.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/routes.js"></script>
+        <script src="scripts/controllers/appController.js"></script>
+        <script src="scripts/controllers/mainController.js"></script>
+        <script src="scripts/controllers/loginController.js"></script>
+        <script src="scripts/services/apiService.js"></script>
+        <script src="scripts/services/storageService.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

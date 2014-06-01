@@ -1,0 +1,10 @@
+{
+    "appName": {
+        "message": "DigitalOcean Tools",
+        "description": "The name of the application"
+    },
+    "appDescription": {
+        "message": "Manage your droplets from the safe chrome app.",
+        "description": "The description of the application"
+    }
+}
