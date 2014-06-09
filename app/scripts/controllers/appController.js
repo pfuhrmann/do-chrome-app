@@ -11,7 +11,7 @@ DOControllers.controller('appController', ['$scope', '$rootScope', '$location', 
     });
     
     // Location watcher
-    $rootScope.locationPath = '/main';
+    $rootScope.locationPath = '/droplets';
     $rootScope.$watch('locationPath', function() {
         $location.path($rootScope.locationPath);
     });

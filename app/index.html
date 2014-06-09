@@ -14,17 +14,23 @@
         <!-- endbuild -->
     </head>
     <body>
-        <h1>DigitalOcean Manager</h1>
-
-        <a href="#main">Manage Droplets</a> | <a href="#login">Config</a>
-
-        <div ng-switch on="authorizationStatus" style="float:right">
-           <p ng-switch-when="loading">Loading...</p>
-           <p ng-switch-when="true" style="color:green;">Authorized</p>
-           <p ng-switch-when="false"  style="color:red;">Not authorized</p>
+        <div id="cssmenu">
+        <ul>
+           <li class="active"><a href="#droplets"><span>Droplets</span></a></li>
+           <li><a href="#login"><span>Configuration</span></a></li>
+           <li><a href="#"><span>About</span></a></li>
+        </ul>
         </div>
 
-        <div ng-view></div>
+        <div id="maincontent">
+            <div id="status" ng-switch on="authorizationStatus">
+               <p ng-switch-when="loading">Loading...</p>
+               <p ng-switch-when="true" style="color:green;">Authorized</p>
+               <p ng-switch-when="false"  style="color:red;">Not authorized</p>
+            </div>
+
+            <div ng-view></div>
+        </div>
 
         <!-- bower:js -->
         <script src="lib/jquery/dist/jquery.js"></script>
@@ -37,7 +43,7 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/routes.js"></script>
         <script src="scripts/controllers/appController.js"></script>
-        <script src="scripts/controllers/mainController.js"></script>
+        <script src="scripts/controllers/dropletController.js"></script>
         <script src="scripts/controllers/loginController.js"></script>
         <script src="scripts/services/apiService.js"></script>
         <script src="scripts/services/storageService.js"></script>

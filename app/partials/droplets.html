@@ -5,6 +5,7 @@
       <td>Name</td>
       <td>IP</td>
       <td>Status</td>
+      <td>Action</td>
     </tr>
   </thead>
   <tbody>
@@ -12,7 +13,8 @@
       <td>{{ droplet.name }}</td>
       <td>{{ droplet.ip_address }}</td>
       <td>{{ droplet.status }}</td>
+      <td><a href ng-click="reboot(droplet.id)" title="Reboot droplet"><img src="images/icon_reboot.png" alt="Reboot droplet" /></a></td>
     </tr>
   </tbody>
-</table>
+</table>{{ message }}
 </p>

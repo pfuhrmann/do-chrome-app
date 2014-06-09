@@ -11,9 +11,9 @@ doChromeManager.config(['$routeProvider',
             templateUrl: 'partials/login.html',
             controller: 'loginController'
         }).
-        when('/main', {
-            templateUrl: 'partials/main.html',
-            controller: 'mainController'
+        when('/droplets', {
+            templateUrl: 'partials/droplets.html',
+            controller: 'dropletController'
         }).
         otherwise({
             redirectTo: '/'

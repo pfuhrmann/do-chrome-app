@@ -57,6 +57,22 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
         });
     };
 
+    // Reboot droplet
+    api.reboot = function(dropletId, callback) {
+         // Call
+        $http({
+            method: 'GET',
+            url: buildURL('droplets/'+dropletId+'/reboot')
+        }).
+        success(function(data) {
+            console.log(data);
+            callback(true);
+        }).
+        error(function() {
+            callback(false);
+        });
+    };
+
     function buildURL(slug) {
         return api.baseURL+'/'+slug+'/?client_id='+api.clientID+'&api_key='+api.key;
     }

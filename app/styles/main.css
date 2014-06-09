@@ -1,3 +1,55 @@
-body {
-    padding: 20px;
+html, body {
+    height: 100%;
+}
+
+#cssmenu {
+  background: #333;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 11em;
+  float: left;
+  height:100%;
+}
+
+#cssmenu ul {
+  margin: 0;
+  padding: 0;
+}
+
+#cssmenu li {
+  font: 100% 'Lucida Sans Unicode', 'Bitstream Vera Sans', 'Trebuchet Unicode MS', 'Lucida Grande', Verdana, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 4em;
+}
+
+#cssmenu a {
+  background: #333;
+  border-bottom: 1px solid #393939;
+  color: #ccc;
+  display: block;
+  margin: 0;
+  padding: 20px 12px;
+  text-decoration: none;
+  font-weight: normal;
+  height: 4em;
+  width: 100%;
+}
+
+#cssmenu a:hover {
+  background: #3686BE url('../images/hover.gif') left center no-repeat;
+  color: #fff;
+  padding-bottom: 8px;
+} 
+
+#maincontent {
+  margin-left: 175px;
+  padding-right: 15px;
+}
+
+#status {
+  float: right;
+  padding-top: 10px;
 }

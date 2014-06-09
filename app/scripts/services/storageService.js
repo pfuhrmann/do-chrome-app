@@ -1,7 +1,7 @@
 'use strict';
 /*global DOServices:false */
 
-DOServices.factory('storageService', ['$http', function($http) {
+DOServices.factory('storageService', function() {
     var storage = {};
 
     // Store data to local storage
@@ -19,4 +19,4 @@ DOServices.factory('storageService', ['$http', function($http) {
     };
 
     return storage;
-}]);
+});
