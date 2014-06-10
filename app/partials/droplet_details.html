@@ -10,15 +10,5 @@
 </div>
 
 <p style="padding-top:40px;">
-<table ng-if="droplets" class="table table-striped">
-  <tbody>
-    <tr ng-repeat="droplet in droplets" ng-click="viewDropletDetails(droplet.id)">
-      <td>{{ droplet.name }}</td>
-      <td>{{ droplet.ip_address }}</td>
-      <td>{{ droplet.status }}</td>
-    </tr>
-  </tbody>
-</table>
-
-<span ng-if="hasDroplets == false" style="padding:20px 20px;">No droplets...</span>
+  Droplet details {{ id }}
 </p>

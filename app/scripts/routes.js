@@ -15,6 +15,13 @@ doChromeManager.config(['$routeProvider',
             templateUrl: 'partials/droplets.html',
             controller: 'dropletController'
         }).
+        when('/droplets/:id', {
+            templateUrl: 'partials/droplet_details.html',
+            controller: 'dropletController'
+        }).
+        when('/about', {
+            templateUrl: 'partials/about.html'
+        }).
         otherwise({
             redirectTo: '/'
         });

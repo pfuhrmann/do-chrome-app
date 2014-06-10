@@ -25,4 +25,13 @@ DOControllers.controller('appController', ['$scope', '$rootScope', '$location', 
             $location.path('/login');
         }
     });
+
+    // Menu class switch
+    $scope.getMenuClass = function(path) {
+        if ($location.path().substr(0, path.length) === path) {
+            return 'active';
+        } else {
+            return '';
+        }
+    };
 }]);

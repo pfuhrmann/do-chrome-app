@@ -14,12 +14,12 @@
         <!-- endbuild -->
     </head>
     <body>
-        <div id="cssmenu">
-        <ul>
-           <li class="active"><a href="#droplets"><span>Droplets</span></a></li>
-           <li><a href="#login"><span>Configuration</span></a></li>
-           <li><a href="#"><span>About</span></a></li>
-        </ul>
+        <div id="menu">
+            <ul class="items">
+               <li><a href="#droplets" ng-class="getMenuClass('/droplets')"><span>Droplets</span></a></li>
+               <li><a href="#login" ng-class="getMenuClass('/login')"><span>Configuration</span></a></li>
+               <li><a href="#about" ng-class="getMenuClass('/about')"><span>About</span></a></li>
+            </ul>
         </div>
 
         <div id="maincontent">
