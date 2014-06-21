@@ -6,6 +6,8 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
 
     // Setup API credentials
     api.baseURL = 'https://api.digitalocean.com/v1';
+    api.clientID = ''; // Local storage (sync)
+    api.key = ''; // Local storage (sync)
 
     // Test authorization details and load droplets
     api.testAndLoad = function(clientID, apiKey, callback) {
@@ -14,10 +16,11 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
         this.key = apiKey;
 
         // Fetch droplets
-        api.fetchDroplets(function(droplets) {
-            if (droplets) {
+        api.fetchDroplets(function(status, data, err) {
+            if (status) {
                 callback(true);
             } else {
+                console.log(err);
                 callback(false);
             }
         });
@@ -30,10 +33,11 @@ DOServices.factory('apiService', ['$http', 'storageService', function($http, $st
         success(function(data) {
             // Store droplets locally
             $storage.store({'droplets': data.droplets});
-            callback(data.droplets);
+            callback(true, data.droplets);
         }).
-        error(function() {
-            callback(false);
+        error(function(err) {
+            console.log(err);
+            callback(false, null, err);
         });
     };
 

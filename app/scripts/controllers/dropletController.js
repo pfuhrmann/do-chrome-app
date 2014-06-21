@@ -6,17 +6,16 @@ DOControllers.controller('dropletController', ['$scope', '$rootScope', '$locatio
         if (!$rootScope.droplets || forced) {
             // Loading droplets
             $scope.loader = true;
-            $api.fetchDroplets(function(droplets) {
+            $api.fetchDroplets(function(status, data, err) {
                 $scope.loader = false;
-                if (droplets) {
-                    $scope.droplets = droplets;
-                    $rootScope.droplets = droplets;
+                if (status) {
+                    $rootScope.droplets = data;
                 } else {
                     $scope.hasDroplets = false;
                 }
             });
         }
-    }
+    };
 
     $scope.id = $routeParams.id;
 
@@ -28,7 +27,6 @@ DOControllers.controller('dropletController', ['$scope', '$rootScope', '$locatio
     // Reboot droplet
     $scope.reboot = function(dropletId) {
         $api.reboot(dropletId, function(data) {
-            
         });
     };
 

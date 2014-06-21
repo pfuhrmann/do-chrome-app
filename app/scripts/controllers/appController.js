@@ -9,7 +9,7 @@ DOControllers.controller('appController', ['$scope', '$rootScope', '$location', 
             $rootScope.fetch = 'X';
         }
     });
-    
+
     // Location watcher
     $rootScope.locationPath = '/droplets';
     $rootScope.$watch('locationPath', function() {
