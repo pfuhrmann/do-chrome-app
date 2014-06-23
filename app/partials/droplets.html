@@ -1,15 +1,5 @@
-<div ng-if="loader" id="circularG">
-  <div id="circularG_1" class="circularG"></div>
-  <div id="circularG_2" class="circularG"></div>
-  <div id="circularG_3" class="circularG"></div>
-  <div id="circularG_4" class="circularG"></div>
-  <div id="circularG_5" class="circularG"></div>
-  <div id="circularG_6" class="circularG"></div>
-  <div id="circularG_7" class="circularG"></div>
-  <div id="circularG_8" class="circularG"></div>
-</div>
+<div ng-include src="'partials/includes/loader.html'"></div>
 
-<p style="padding-top:40px;">
 <table ng-if="droplets" class="table table-striped">
   <tbody>
     <tr ng-repeat="droplet in droplets" ng-click="viewDropletDetails(droplet.id)">
@@ -21,4 +11,3 @@
 </table>
 
 <span ng-if="hasDroplets == false" style="padding:20px 20px;">No droplets...</span>
-</p>
