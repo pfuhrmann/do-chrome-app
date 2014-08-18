@@ -8,7 +8,7 @@ Implementation of the DigitalOcean API as Chrome Packaged App.
 - Bower
 - Grunt
 
-Whole app is written using server-side JS (Angular.js), however Node.js (Grunt) comes handy for the development (minification, concatenation, packaging etc.).
+Whole app is written using client-side JS (Angular.js), however Node.js (Grunt) comes handy for the development (minification, concatenation, packaging etc.).
 
 ## Installation
 Install npm dependencies (this is only for development):
