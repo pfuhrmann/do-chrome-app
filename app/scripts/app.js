@@ -4,7 +4,7 @@
 
 // DI App Container - main app module
 var doChromeManager = angular.module('doChromeManager', [
-	'ngRoute',
+    'ngRoute',
     'DOControllers',
     'DOServices'
 ]);
